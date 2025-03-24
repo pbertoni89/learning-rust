@@ -9,9 +9,9 @@ fn best_fuel<'a>(x: &'a str, y: &'a str) -> &'a str {
 fn main() {
     let result;
     let propellant1 = String::from("RP-1");
-    {
+    // {  // TODO uncomment to get error[E0597]
         let propellant2 = String::from("LNG");
         result = best_fuel(&propellant1, &propellant2);
-    }
+    // }
     println!("result is {}", result);
 }

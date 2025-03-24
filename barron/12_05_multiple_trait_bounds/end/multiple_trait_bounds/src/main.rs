@@ -1,7 +1,7 @@
 use std::fmt;
 
 // fn compare_and_print<T: fmt::Display + PartialEq + From<U>, U: fmt::Display + PartialEq + Copy>(a: T, b: U) {
-fn compare_and_print<T, U>(a: T, b: U) 
+fn compare_and_print<T, U>(a: T, b: U)
     where T: fmt::Display + PartialEq + From<U>,
           U: fmt::Display + PartialEq + Copy
 {
@@ -13,6 +13,6 @@ fn compare_and_print<T, U>(a: T, b: U)
 }
 
 fn main() {
-    compare_and_print(1.0, "one");
+    // compare_and_print(1.0, "one");
     compare_and_print(1.1, 1);
 }
