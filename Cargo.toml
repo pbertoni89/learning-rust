@@ -1,0 +1,19 @@
+# thanks deepseek
+[package]
+name = "pb_learning_rust"
+version = "0.1.0"
+edition = "2024"
+
+# `main` as a name specifies which binary is the default when using `cargo run`
+
+[[bin]]
+name = "13_05_struct_lifetime_end"
+path = "barron/13_05_struct_lifetime/end/struct_lifetime/src/main.rs"
+
+[[bin]]
+name = "14_05_option_enum_begin"
+path = "barron/14_05_option_enum/begin/enum_methods/src/main.rs"
+
+[[bin]]
+name = "13_03_multiple_lifetimes_end"
+path = "barron/13_03_multiple_lifetimes/end/multiple_lifetimes/src/main.rs"
