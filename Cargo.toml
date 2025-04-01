@@ -17,3 +17,11 @@ path = "barron/14_05_option_enum/begin/enum_methods/src/main.rs"
 [[bin]]
 name = "13_03_multiple_lifetimes_end"
 path = "barron/13_03_multiple_lifetimes/end/multiple_lifetimes/src/main.rs"
+
+[[bin]]
+name = "14_08_challenge_location_begin"
+path = "barron/14_08_challenge_location/begin/location/src/main.rs"
+
+[[bin]]
+name = "15_03_match_result_end"
+path = "barron/15_03_match_result/end/match_result/src/main.rs"
