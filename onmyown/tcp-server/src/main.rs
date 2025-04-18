@@ -67,7 +67,7 @@ fn handle_client(mut stream: TcpStream) {
             stream.shutdown(Shutdown::Both).unwrap();
             false
         }
-    } {}  // this is the body of while cycle
+    } {}  // this is the body of the while cycle
 }
 
 

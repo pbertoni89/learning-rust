@@ -2,8 +2,8 @@ use std::env;
 use std::fs;
 use std::collections::HashMap;
 
-fn main() {
-    // read file and build vector of individual words
+
+fn get_all_words() -> String {
     let contents = match env::args().nth(1) {
         Some(f) => match fs::read_to_string(f) {
             Ok(s) => s.to_lowercase(),
@@ -17,15 +17,20 @@ fn main() {
             std::process::exit(2);
         }
     };
-    let all_words = contents.split_whitespace().collect::<Vec<&str>>();
+    contents
+}
 
-    // count how many times each unique word occurs
+
+fn get_count_words(all_words: Vec<&str>) -> HashMap<&str, u32> {
     let mut word_counts: HashMap<&str, u32> = HashMap::new();
     for word in all_words.iter() {
-        *word_counts.entry(word).or_insert(1) += 1;
-    }
-    
-    // determine the most commonly used word(s)
+        *word_counts.entry(word).or_insert(0) += 1;
+    };
+    word_counts
+}
+
+
+fn get_top_words(word_counts: HashMap<&str, u32>) -> (u32, Vec<&str>) {
     let mut top_count = 0u32;
     let mut top_words: Vec<&str> = Vec::new();
     for (&key, &val) in word_counts.iter() {
@@ -37,10 +42,24 @@ fn main() {
             top_words.push(key);
         }
     }
+    (top_count, top_words)
+}
+
+
+fn main() {
+    // read file and build vector of individual words
+    let contents = get_all_words();
+    let all_words = contents.split_whitespace().collect::<Vec<&str>>();
+
+    // count how many times each unique word occurs
+    let word_counts = get_count_words(all_words);
+
+    // determine the most commonly used word(s)
+    let (top_count, top_words) = get_top_words(word_counts);
 
     // display results
     println!("Top word(s) occurred {} times:", top_count);
-    for word in top_words.iter() {
-        println!("{}", word);
+    for (i, word) in top_words.iter().enumerate() {
+        println!("{}) {}", i+1, word);
     }
 }
